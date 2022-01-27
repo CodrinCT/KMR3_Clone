@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Equipment;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class EquipmentController extends Controller
 {
@@ -12,9 +13,21 @@ class EquipmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $equipments = Equipment::all();
+        if ($request->ajax()) {
+        $allData = DataTables::of($equipments)->addIndexColumn()->make(true);
+        return $allData;
+        }
+        // if($request->ajax()){
+        //     $allData = DataTables::of($students)->addIndexColumn()->addColumn('action', function($row){
+        //         $btn = '<a href="javascript:void(0)" data-toggle="tooltip" data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm editStudent">Edit</a>';
+        //         $btn .= '<a href="javascript:void(0)" data-toggle="tooltip" data-id="'.$row->id.'" data-original-title="Delete" class="edit btn btn-danger btn-sm deleteStudent">Delete</a>';
+        //    return $btn;
+        //     })->rawColumns(['action'])->make(true);
+        //     return $allData;
+        // }
         return view('admin.equipments.all_equipments', compact('equipments'));
     }
 

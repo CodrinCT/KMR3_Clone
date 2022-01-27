@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/equipments', EquipmentController::class)->name('index', 'show.equipments');
+Route::resource('/equipments', EquipmentController::class);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('admin.dashboard.dashboard');

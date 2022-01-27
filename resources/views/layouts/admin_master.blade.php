@@ -7,6 +7,7 @@
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+ 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{ asset('vendors/plugins/fontawesome-free/css/all.min.css') }}">
   <!-- Ionicons -->
@@ -25,6 +26,8 @@
   <link rel="stylesheet" href="{{ asset('vendors/plugins/daterangepicker/daterangepicker.css') }}">
   <!-- summernote -->
   <link rel="stylesheet" href="{{ asset('vendors/plugins/summernote/summernote-bs4.min.css') }}">
+   {{-- Data Tables --}}
+ <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -39,6 +42,7 @@
  
    <!-- Main Sidebar Container -->
   @include('admin.dashboard.sidebar')
+  
 
   @yield('content')
 
@@ -86,5 +90,9 @@
 <script src="{{ asset('vendors/dist/js/demo.js') }}"></script>
 <!-- vendorsLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('vendors/dist/js/pages/dashboard.js') }}"></script>
+{{-- Data Tables --}}
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+
+@stack('scripts')
 </body>
 </html>

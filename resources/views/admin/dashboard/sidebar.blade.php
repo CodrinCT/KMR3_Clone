@@ -35,7 +35,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item menu-open">
-            <a href="{{ route('show.equipments') }}" class="nav-link active">
+            <a href="{{ route('equipments.index') }}" class="nav-link active">
               <i class="fas fa-warehouse"></i>
               <p>
                 Equipments

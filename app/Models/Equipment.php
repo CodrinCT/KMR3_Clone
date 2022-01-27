@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Equipment extends Model
 {
     use HasFactory;
+
+    protected $table='equipments';
+
+    public function category()
+    {
+        return $this->belongsTo(EquipmentCategory::class, 'id_location', 'id');
+    }
 }
